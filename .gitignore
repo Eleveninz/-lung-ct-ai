@@ -1,0 +1,30 @@
+# Python 编译文件
+__pycache__/
+*.py[cod]
+*.so
+
+# 虚拟环境
+env/
+venv/
+.venv/
+
+# Jupyter Notebook 临时文件
+.ipynb_checkpoints/
+
+# 数据集文件（太大不要传 GitHub）
+data/
+*.zip
+*.tar
+*.tar.gz
+
+# 日志文件
+*.log
+
+# CUDA 生成的临时文件
+*.pt
+*.pth
+*.ckpt
+
+# 系统文件
+.DS_Store
+Thumbs.db
