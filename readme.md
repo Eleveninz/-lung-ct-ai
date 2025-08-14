@@ -1,25 +1,59 @@
-# AI Lung Nodule Detection
+# AI Lung Nodule Detection 🫁🧠
 
-## 项目简介
-本项目旨在基于公开的肺部 CT 数据集（LIDC-IDRI），构建一个用于肺结节检测与分类的深度学习模型。  
-目标是利用卷积神经网络（CNN）及深度学习技术，实现对医学影像的自动化分析，辅助医生进行早期肺癌筛查。
+基于 LUNA16 数据集的肺结节自动检测系统，支持上传 CT 切片图像，通过 YOLOv5 检测结节，并生成可视化结果与简要诊断报告。系统由 PyTorch 后端 + Flutter 跨平台前端组成，适用于医学影像 AI 项目展示与学习。
 
-## 项目目标
-- 数据加载与预处理（CT 扫描图像处理、标注解析）
-- 模型搭建（CNN / 3D CNN / 迁移学习）
-- 模型训练与评估（准确率、召回率、F1-score）
-- 部署为可交互的 Web / 微信小程序
+---
 
-## 技术栈
-- Python 3.x
-- PyTorch / TensorFlow（待定）
-- CUDA / cuDNN（GPU 加速）
-- NumPy, Pandas, OpenCV
-- Matplotlib / Seaborn
+## 🔧 技术栈
 
+| 组件       | 技术                     |
+|------------|--------------------------|
+| 模型训练   | YOLOv5 (PyTorch)         |
+| 数据处理   | SimpleITK, OpenCV        |
+| 前端界面   | Flutter (Web/Android/iOS)|
+| 后端服务   | Flask REST API           |
+| 报告生成   | OpenAI GPT API（可选）   |
+| 推理平台   | 本地或云端（支持GPU）    |
+
+---
+
+## 🚀 快速启动
+
+### 1️⃣ 克隆项目
+
+```bash
+git clone https://github.com/Eleveninz/-lung-ct-ai.git
+cd -lung-ct-ai
+
+### 2️⃣ 安装依赖
+
+# 建议使用 conda 环境
+conda activate lung_ai
+pip install -r requirements.txt
+
+### 3️⃣ 模型训练（YOLOv5）
 ## 数据集
 - **LIDC-IDRI**: 美国癌症影像档案（TCIA）提供的肺部 CT 扫描公开数据集
 - 来源论文：[The Lung Image Database Consortium (LIDC) and Image Database Resource Initiative (IDRI)](https://doi.org/10.1118/1.3528204)
+### 4️⃣ 本地推理测试
+python detect.py --weights runs/train/your_model/weights/best.pt --source test_images/
+🖼️ 系统功能演示
+
+上传 CT 切片（支持 JPG / PNG / DICOM）
+
+YOLOv5 模型检测肺结节区域，返回置信度与框坐标
+
+Flutter 页面显示检测图与坐标
+
+一键生成医学风格报告（可下载 / 可分享）
+
+lung-ct-ai/
+├── data/                 # LUNA16 数据集及预处理
+├── flask_server/         # 后端推理服务（Flask）
+├── frontend_flutter/          # Flutter 前端界面
+├── yolov5/               # YOLOv5 检测模型（含训练）
+├── requirements.txt
+└── README.md
 
 ## 当前进度
 - [x] 项目初始化
@@ -29,39 +63,13 @@
 - [x] 模型训练
 - [ ] 部署与发布
 
-## 项目结构（规划）
-半年执行路径
-第1-2个月：数据+基础模型
-• 下载 LUNA16 或 ChestX-ray14 数据集
-• 用 PyTorch 搭建 ResNet/YOLOv5 检测模型
-• 先跑通 baseline，能在测试集上检测出结节位置。
-第3-4个月：优化与可视化
-• 加强数据预处理（归一化、数据增强）
-• 模型精度提升（调参、迁移学习）
-• 用 Streamlit 或 Flask 做一个网页版 Demo，可以上传X光片，返回检测结果。
-第5个月：AI报告生成
-• 将检测结果输入大模型（如OpenAI API、ChatGLM、文心一言）
-• 自动生成简短的医学报告（比如“发现右肺上叶1个可疑结节，建议进一步CT检查”）。
-第6个月：产品化+发布
-• 把 Demo 部署到云端
-• GitHub 上传完整代码 + 文档
-• 录制演示视频（中英文各一版）
-• 写成技术博客，发在知乎、CSDN、LinkedIn 提高曝光。
-## 作者
-- 大连医科大学 生物医学工程专业 大三学生  
-- 对 AI、医疗影像处理、计算机视觉充满兴趣  
-- 目标：进入科技前沿领域（AI、机器人、医疗器械等）
+🙋‍♂️ 作者简介
 
----
+🎓 大连医科大学 生物医学工程专业
 
-*备注：本项目为个人学习与探索之用，不用于商业医疗诊断。*
-AI-Lung-Nodule-Detection/
-│── README.md
-│── requirements.txt
-│── main.py
-│── data/ # 数据集（本地存储，不上传到GitHub）
-│── src/ # 代码目录
-│ ├── preprocessing.py
-│ ├── model.py
-│ └── train.py
-│── results/ # 模型输出与可视化结果
+💡 热爱人工智能 + 医学影像处理
+
+🚀 本项目为 AI 求职作品集之一
+
+📫 GitHub: Eleveninz
+
