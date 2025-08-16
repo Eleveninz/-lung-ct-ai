@@ -32,3 +32,5 @@ logs/
 # System files
 .DS_Store
 Thumbs.db
+# 忽略 flask_server/uploads 文件夹及其所有内容
+flask_server/uploads/
